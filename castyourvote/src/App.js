@@ -10,6 +10,9 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Home from './Components/Home';
+import NewPoll from './Components/NewPoll';
+import PollingStation from './Components/PollingStation';
 
 
 import getConfig from './config'
@@ -33,6 +36,12 @@ export default function App() {
     </Nav>
   </Navbar.Collapse>
   </Container>
-</Navbar></Router>
+</Navbar>
+<Switch>
+  <Route exact path="/"><Home/></Route>
+  <Route exact path="/PollingStation"><PollingStation/></Route>
+  <Route exact path="/NewPoll"><NewPoll/></Route>
+</Switch>
+</Router>
   )
 }
