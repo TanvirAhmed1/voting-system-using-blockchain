@@ -23,7 +23,7 @@ const Home = props => {
                                 <td>{index + 1}</td>
                                 <td>{el}</td>
                                 <td>
-                                    <Button>Go to Poll</Button>
+                                    <Button onClick={() => props.changeCandidates(el)}>Go to Poll</Button>
                                 </td>
                             </tr>
                         )

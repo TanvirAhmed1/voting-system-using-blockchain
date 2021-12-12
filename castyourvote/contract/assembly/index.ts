@@ -1,9 +1,9 @@
 import {logging, PersistentMap} from 'near-sdk-as'
 
-const CandidateUrl = new PersistentMap<string, string>("CandidateUrl");
+const CandidateUrl = new PersistentMap<string, string>("CandidateURL");
 const CandidatePair= new PersistentMap<string, string[]>("Candidate Pair");
-const PromptArray = new PersistentMap<string, string[]>("array of prompts");
-const VoteArray= new PersistentMap<string, i32[]>("stores votes");
+const PromptArray = new PersistentMap<string, string[]>("array of prompts ");
+const VoteArray= new PersistentMap<string, i32[]>("stores votes ");
 const userParticipation = new PersistentMap<string, string[]>("user Participation Record");
 
 export function getUrl(name:string):string{
@@ -39,9 +39,17 @@ export function getVotes(prompt:string):i32[]{
     return [0,0];
   }
 }
+export function getCandidatePair(prompt:string):string[]{
+  if(VoteArray.contains(prompt)){
+    return CandidatePair.getSome(prompt);
+  }else{
+    logging.log("prompt not found");
+    return [];
+  }
+}
 export function addUrl(name:string, url:string):void{
   CandidateUrl.set(name,url);
-  logging.log('added url for'+ name);
+  logging.log('added url for '+ name);
 }
 export function addCandidatePair(prompt:string, name1:string, name2:string):void{
   CandidatePair.set(prompt,[name1,name2])

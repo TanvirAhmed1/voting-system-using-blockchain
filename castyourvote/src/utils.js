@@ -22,7 +22,8 @@ export async function initContract() {
     'didParticipate',
     'getAllPrompt',
     'getVotes',
-    'getUrl'],
+    'getUrl',
+  'getCandidatePair'],
     // Change methods can modify the state. But you don't receive the returned value when called.
     changeMethods: ['addUrl',
     'addCandidatePair',
