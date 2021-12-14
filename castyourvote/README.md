@@ -13,6 +13,8 @@ To run this project locally:
 2. Install dependencies: `yarn install`
 3. Run the local development server: `yarn dev` (see `package.json` for a
    full list of `scripts` you can run with `yarn`)
+4. React router latest version 6 does not work properly with this app,
+   need to change version by using `npm install react-router-dom@5.3.0`
 
 Now you'll have a local development environment backed by the NEAR TestNet!
 
